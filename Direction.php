@@ -14,17 +14,25 @@ namespace Cubiche\Core\Comparable;
 use Cubiche\Core\Enum\Enum;
 
 /**
- * Sorting Order enum.
+ * Sorting Direction enum.
  *
- * @method Order ASC()
- * @method Order DESC()
+ * @method Direction ASC()
+ * @method Direction DESC()
  *
  * @author Karel Osorio Ramírez <osorioramirez@gmail.com>
  */
-final class Order extends Enum
+final class Direction extends Enum
 {
     const __DEFAULT = self::ASC;
 
     const ASC = 1;
     const DESC = -1;
+
+    /**
+     * @return \Cubiche\Core\Comparable\Direction
+     */
+    public function reverse()
+    {
+        return new self(-1 * $this->getValue());
+    }
 }
